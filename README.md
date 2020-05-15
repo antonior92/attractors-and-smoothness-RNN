@@ -30,7 +30,7 @@ git clone git@github.com:antonior92/attractors-and-smoothness-RNN.git
 
 ### Submodules
 
-This package have [expRNN](https://github.com/huyvnphan/PyTorch_CIFAR10) as a submodule. To
+This package have [expRNN](https://github.com/Lezcano/expRNN) as a submodule. To
 load this submodule run (from inside the repository):
 ```bash
 git submodule init
