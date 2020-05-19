@@ -48,7 +48,8 @@ numpy, scipy, matplotlib and tqdm. Check ``requirements.txt``.
 We use the "wikitext-2" dataset in the word-level language model example (a full description of the dataset is available
 [here](https://www.salesforce.com/products/einstein/ai-research/the-wikitext-dependency-language-modeling-dataset/)).
 
-The dataset is small and we save it inside this git repository (`word-language-model/wikitext-2/`).
+The dataset is small and we save it inside this git repository (`word-language-model/wikitext-2/`) using 
+git-lfs extension (available [here](https://git-lfs.github.com/)).
 
 
 ## Repository structure
