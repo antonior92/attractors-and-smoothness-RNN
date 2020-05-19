@@ -43,6 +43,14 @@ or, alternatively, add the option ``--recurse-submodules`` in git clone.
 This package was tested in Python 3.6 and for PyTorch 1.1. Other dependencies include 
 numpy, scipy, matplotlib and tqdm. Check ``requirements.txt``.
 
+### Required datasets
+
+We use the "wikitext-2" dataset in the word-level language model example (a full description of the dataset is available
+[here](https://www.salesforce.com/products/einstein/ai-research/the-wikitext-dependency-language-modeling-dataset/)).
+
+The dataset is small and we save it inside this git repository (`word-language-model/wikitext-2/`).
+
+
 ## Repository structure
 
 This repository contain a folder for each of the experiments described in the paper. 
