@@ -100,3 +100,15 @@ the weights of the model that was obtained. ``train.pyconfig.json`` is a json fi
 is passed during train. This binary file contains points saved during training every ``N``-th epoch, these points
 can be used for generating the biffurcation diagram (a.k.a. orbit diagram).
 
+#### Pretrained models and datapoint
+
+Pretrained models and datapoints can be downloaded from: 
+
+- Zenodo: https://doi.org/10.5281/zenodo.3834894
+- Dropbox: https://www.dropbox.com/s/bgx68aoehup1lh0/beyond-explod-and-vanish-grad.zip?dl=0
+
+The above dropbox link can also be used to download the files from the command line, 
+```
+wget https://www.dropbox.com/s/bgx68aoehup1lh0/beyond-explod-and-vanish-grad.zip?dl=0
+```
+
