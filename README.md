@@ -79,7 +79,7 @@ python train.py --help
 which should print all possible command line options. Which include different architecture configuration
 and training specifications. One important option is ``--interval_orbit N``, which save points
 every ``N``-th epoch, which latter can be used for generating the biffurcation diagrams (a.k.a. orbit diagram)
-such as the one bellow:
+such as the one bellow: (as we will describe ahead)
 ![img/biffurcation_diagrams.png](img/biffurcation_diagrams.png)
 
 
@@ -125,14 +125,42 @@ the model trajectory for a constant output (possibly, after a burnout period) fo
  - for `n_o` different (transformed) outputs measure points; 
  - for `n_seq` different initializations
  - for a total of `n_ep`;
- - and for a total trajectory length of `seq_len`
+ - and for a total trajectory length of `seq_len`.
 
 #### Plotting the bifurcation diagram
 
 We provide a lightweight script `plot_orbit_diagram.py` to generate matplotlib plots of this bifurcation diagram 
 from the saved file. This script might be called from the command line as:
-```python
+```bash
 python plot_orbit_diagram.py $PATH
 ```
 where path is the path to the `.pth` file containing the datapoints. The option `--help` should give a list of the 
 parameters that can be passed to the plot.
+
+
+We give a few examples bellow using the pretrained models and the datapoints we provide 
+([link](https://doi.org/10.5281/zenodo.3834894);
+ [link](https://www.dropbox.com/s/bgx68aoehup1lh0/beyond-explod-and-vanish-grad.zip?dl=0)). 
+Let ``DATAPOINT_FOLDER`` point to the location of the top folder after the zip extraction. For instance:
+```bash
+unzip beyond-explod-and-vanish-grad.zip
+DATAPOINTS=./beyond-explod-and-vanish-grad
+```
+
+
+Setting the command `-t orbit2d` one can generate 2 dimensional bifurcation plots, for each first dimension correspond to
+the state and the other to the first difference. Using this option it is possible to generate figures similar to 
+Figure 4(a) in the paper. For instance:
+```bash
+python plot_orbit_diagram.py $DATAPOINTS/sine-generator/lstm/orbit_per_epoch_diagram.pth -t orbit2d -b 300 -ie 30 -fe 300
+```
+Expected output:
+![lstm-sine](./img/LSTM_sine_classification.png)
+
+It is also possible to generate one-dimensional bifurcation plots by using the option `-t orbit1d`. For instance,
+we can generate something similar to Figure 8 (c) in the paper, by using:
+```bash
+python plot_orbit_diagram.py $DATAPOINTS/word-language-model/oRNN/orbit_per_epoch_diagram.pth -t orbit1d -b 300
+```
+Expected output:
+![ornn-wlm](./img/oRNN_world_language_model.png)

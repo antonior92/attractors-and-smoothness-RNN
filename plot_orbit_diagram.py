@@ -95,7 +95,7 @@ if __name__ == "__main__":
     trajectory = ckpt["trajectory"].detach().numpy()
 
     # Get figure and axis
-    fig = plt.figure()
+    fig = plt.figure(figsize=(6, 6))
     if args.type == 'orbit2d':
         ax = fig.add_subplot(111, projection='3d')
     else:
