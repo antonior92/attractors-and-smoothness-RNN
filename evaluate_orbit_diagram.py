@@ -23,12 +23,12 @@ def state_0_loader_per_batch(state_0_full, bs, n, rnn_type):
 
 
 class EvaluateOrbitDiagram(object):
-    """Evaluate orbit diagram. ``points`` is a generator that generate the points to be evaluated. It should
-    generate a total of ``n_points``. ``const_inp`` is a tensor of size (n_different_inputs, input_size). ``model`` is
-    the pytorch module that should be called as ``model(inp, state)``. ``transformation`` is either None or a
-    pytorch module: ``transformation(torch.Tensor shape = (seq_len-burnout, batch_size, output_size)) -> vector_size``.
-    Notice that ``vector_size`` refer to the size after the transformation. If use_feedback=True, reconect
-    auto regressive terms to generate the orbit."""
+    """Evaluate orbit diagram. It should  generate a total of ``n_points``. ``const_inp`` is a
+     tensor of size (n_different_inputs, input_size). ``model`` is  the pytorch module that should
+      be called as ``model(inp, state)``. ``transformation`` is either None or a pytorch module:
+       ``transformation(torch.Tensor shape = (seq_len-burnout, batch_size, output_size)) -> vector_size``.
+      Notice that ``vector_size`` refer to the size after the transformation. If use_feedback=True, reconect
+      auto regressive terms to generate the orbit."""
 
     def __init__(self, n_points, const_inp, model, device,
                  batch_size, n_sequences, seq_len, burnout,

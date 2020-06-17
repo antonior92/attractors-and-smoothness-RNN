@@ -112,3 +112,27 @@ The above dropbox link can also be used to download the files from the command l
 wget https://www.dropbox.com/s/bgx68aoehup1lh0/beyond-explod-and-vanish-grad.zip?dl=0
 ```
 
+## Generating and plotting bifurcation diagrams
+
+As mentioned before, during training we have the option to save intermediary 
+datapoints in the pytorch binary file ``orbit_per_epoch_diagram.pth``. This file
+contains a 5D-tensor `trajectory` with the dimensions 
+`(seq_len, n_seq, n_i, n_o, n_ep)`
+and can be used to generate a bifurcation diagram (aka orbit diagram), which depicts
+the steady-state behavior of the system along the epochs. So this tensor contain
+the model trajectory for a constant output (possibly, after a burnout period) for:
+ - `n_i` different constant inputs applied to the system;
+ - for `n_o` different (transformed) outputs measure points; 
+ - for `n_seq` different initializations
+ - for a total of `n_ep`;
+ - and for a total trajectory length of `seq_len`
+
+#### Plotting the bifurcation diagram
+
+We provide a lightweight script `plot_orbit_diagram.py` to generate matplotlib plots of this bifurcation diagram 
+from the saved file. This script might be called from the command line as:
+```python
+python plot_orbit_diagram.py $PATH
+```
+where path is the path to the `.pth` file containing the datapoints. The option `--help` should give a list of the 
+parameters that can be passed to the plot.
